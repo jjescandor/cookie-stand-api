@@ -16,23 +16,28 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 env = environ.Env(
     DEBUG=(bool, False),
-    ENVIRONMENT=(str, "PRODUCTION"),
-    ALLOW_ALL_ORIGINS=(bool, False),
-    ALLOWED_HOSTS=(list, []),
-    ALLOWED_ORIGINS=(list, []),
-    DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
-    DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
-    DATABASE_USER=(str, ""),
-    DATABASE_PASSWORD=(str, ""),
-    DATABASE_HOST=(str, ""),
-    DATABASE_PORT=(int, 5432),
+    ALLOWED_HOSTS=['localhost'],
 )
 
-environ.Env.read_env()
 
-ENVIRONMENT = env.str("ENVIRONMENT")
+# env = environ.Env(
+#     DEBUG=(bool, False),
+#     ENVIRONMENT=(str, "PRODUCTION"),
+#     ALLOW_ALL_ORIGINS=(bool, False),
+#     ALLOWED_HOSTS=(list, []),
+#     ALLOWED_ORIGINS=(list, []),
+#     DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
+#     DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
+#     DATABASE_USER=(str, ""),
+#     DATABASE_PASSWORD=(str, ""),
+#     DATABASE_HOST=(str, ""),
+#     DATABASE_PORT=(int, 5432),
+# )
+
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -65,14 +70,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -99,9 +105,30 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+#SQLITE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+#POSTGRESQL
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "postgres",
+#         "USER": "postgres",
+#         "PASSWORD": "postgres",
+#         "HOST": "db",
+#         "PORT": 5432,
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": env.str("DATABASE_ENGINE"),
+        "ENGINE": 'django.db.backends.postgresql',
         "NAME": env.str("DATABASE_NAME"),
         "USER": env.str("DATABASE_USER"),
         "PASSWORD": env.str("DATABASE_PASSWORD"),
