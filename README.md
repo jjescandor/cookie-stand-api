@@ -1,25 +1,31 @@
-# api-quick-start
+## LAB - Class 34
 
-Template Project for starting up CRUD API with Django Rest Framework
+#### Project: Django Backend Deployment 
+#### Author: JJ Escandor
 
-## Customization Steps
+#### Description
+ - This is project introduces Django Rest Framework, Docker, Postgresql, JWT
 
-- DO NOT migrate yet
-- add additional dependencies as needed
-  - Re-export requirements.txt as needed
-- change `things` folder to the app name of your choice
-- Search through entire code base for `Thing`,`Things` and `things` to modify code to use your resource
-  - `project/settings.py`
-  - `project/urls.py`
-  - App's files
-    - `views.py`
-    - `urls.py`
-    - `admin.py`
-    - `serializers.py`
-    - `permissions.py`
-- Update ThingModel with fields you need
-  - Make sure to update other modules that would be affected by Model customizations. E.g. serializers, tests, etc.
-- Rename `project/.env.sample` to `.env` and update as needed
-- Run makemigrations and migrate commands
-- Run `collectstatic` if needed.
-- Optional: Update `api_tester.py`
+### To get tokens
+ - source .venv/bin/activate
+ - docker compose up -d
+ - go to http://44.202.123.64/admin/ in the browser
+ - admin username: code01 password: ASDFzxcv!@34 
+
+### Features - Django
+- Create a new public repo cookie-stand-api that uses API Quick Start as a template, or use one that you have created.
+- Modify your application using instructions in README.md found in root of repo.
+- Install from requirements.txt.
+- Export (aka freeze) requirements.
+- Change things app folder to be cookie_stands.
+- Go through code base looking for Thing,thing and things change to cookie-stand related names.
+
+### Features - AWS
+- Deploy Docker container (Heroku, Azure, AWS, Digital Ocean, etc..)
+
+### Storage Options - ElephantSQL
+- Host your Database at ElephantSQL
+
+
+### Tests
+1. run docker compose run web python3 manage.py test
