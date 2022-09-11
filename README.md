@@ -9,7 +9,7 @@
 ### To get tokens
  - source .venv/bin/activate
  - docker compose up -d
- - go to http://44.202.123.64/admin/ in the browser
+ - go to deployed [site](http://44.202.123.64/admin/) 
  - admin username: code01 password: ASDFzxcv!@34 
 
 ### Features - Django
