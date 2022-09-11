@@ -28,4 +28,4 @@
 
 
 ### Tests
-1. run docker compose run web python3 manage.py test
+1. No test at this time
