@@ -210,3 +210,6 @@ SIMPLE_JWT = {
         seconds=60 * 60
     ),
 }
+
+CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
