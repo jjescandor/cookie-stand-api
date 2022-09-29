@@ -195,7 +195,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
-CORS_ALLOW_ALL_ORIGINS = env.bool("ALLOW_ALL_ORIGINS")
+CORS_ALLOW_ALL_ORIGINS = True # Do not run your production server with this setting
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = (
         'GET',
         'POST',
