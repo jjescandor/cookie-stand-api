@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -203,3 +204,9 @@ CORS_ALLOW_METHODS = (
         'DELETE',
         'OPTIONS'
     )
+
+SIMPLE_JWT = {
+       "ACCESS_TOKEN_LIFETIME": timedelta(
+        seconds=60 * 60
+    ),
+}
