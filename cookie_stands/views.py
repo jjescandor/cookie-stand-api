@@ -14,6 +14,6 @@ class CookieStandsList(ListCreateAPIView):
 
 
 class CookieStandsDetail(RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsOwnerOrReadOnly,)
+    # permission_classes = (IsOwnerOrReadOnly,)
     queryset = CookieStand.objects.all()
     serializer_class = CookieStandsSerializer
